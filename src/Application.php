@@ -17,7 +17,6 @@ class Application extends CupcakeApplication
     public function bootstrap(): void
     {
         parent::bootstrap();
-        //$this->addPlugin('Cupcake');
     }
 
     /**
@@ -28,6 +27,7 @@ class Application extends CupcakeApplication
         parent::routes($routes);
         $routes->scope('/', function (RouteBuilder $routes) {
             $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+            $routes->connect('/cake', ['controller' => 'Pages', 'action' => 'display', 'cake']);
         });
     }
 }

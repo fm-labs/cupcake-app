@@ -13,6 +13,8 @@ $this->disableAutoLayout();
 <head>
     <meta charset="UTF-8" />
     <title>cupcake-app</title>
+    <?= $this->Html->css('normalize.min.css'); ?>
+    <?= $this->Html->css('milligram.min.css'); ?>
     <?= $this->Html->css('home.css'); ?>
     <?= $this->fetch('css'); ?>
     <?= $this->fetch('headjs'); ?>
@@ -23,7 +25,16 @@ $this->disableAutoLayout();
         <section class="section">
             <div class="container">
                 <p style="padding: 1em;">
-                    Hello, Cupcake!
+                    Welcome to Cupcake!
+                </p>
+                <p style="padding: 1em;">
+                    Flavoured CakePHP application in a Cupcake :)
+                </p>
+                <p style="padding: 1em;">
+                    <?= $this->Html->link('View CakePHP Startpage',
+                        ['controller' => 'Pages', 'action' => 'display', 'cake'],
+                        ['class' => 'button']
+                    ); ?>
                 </p>
             </div>
         </section>
