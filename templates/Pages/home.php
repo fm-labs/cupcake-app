@@ -22,7 +22,6 @@ $this->disableAutoLayout();
     <div class="home">
         <section class="section">
             <div class="container">
-                <?= $this->Html->image('flowmotion.png', ['alt' => 'fm-labs logo']); ?>
                 <p style="padding: 1em;">
                     Hello, Cupcake!
                 </p>
