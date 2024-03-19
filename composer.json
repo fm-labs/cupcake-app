@@ -1,0 +1,50 @@
+{
+    "name": "fm-labs/cupcake",
+    "description": "fmlabs website",
+    "homepage": "https://www.flowmotion-labs.com",
+    "type": "project",
+    "license": "Proprietary",
+    "require": {
+        "php": ">=8.1",
+        "fm-labs/cakephp-cupcake": "^0.10.0",
+        "fm-labs/cakephp-essentials": "^1.4",
+        "fm-labs/php-curl": "^1.1"
+    },
+    "require-dev": {
+        "fm-labs/cakephp-devtools": "^1.4"
+    },
+    "suggest": {
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src",
+            "Cupcake\\": "./plugins/Cupcake/src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Test\\": "tests",
+            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"        }
+    },
+    "scripts": {
+        "post-install-cmd": "App\\Console\\Installer::postInstall",
+        "check": [
+            "@test",
+            "@cs-check"
+        ],
+        "cs-check": "cakedev phpcs",
+        "cs-fix": "cakedev phpcbf",
+        "quick-test": "cakedev quick-test",
+        "test": "cakedev phpunit",
+        "stan": "cakedev phpstan",
+        "quick-build": "cakedev quick-build",
+        "full-build": "cakedev full-build",
+        "static-analysis": "cakedev static-analysis"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cakephp/plugin-installer": true
+        }
+    }
+}

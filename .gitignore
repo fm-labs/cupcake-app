@@ -1,0 +1,10 @@
+.idea/
+.docker/
+build/
+data/
+dist/
+plugins/
+tmp/
+logs/
+vendor/
+webroot/cache/

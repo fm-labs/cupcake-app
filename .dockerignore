@@ -1,0 +1,10 @@
+.idea/
+.git/
+.docker/
+logs/
+plugins/
+tmp/
+vendor/
+.gitignore
+Dockerfile
+*.sh
