@@ -1,7 +1,7 @@
 {
-    "name": "fm-labs/cupcake",
-    "description": "fmlabs website",
-    "homepage": "https://www.flowmotion-labs.com",
+    "name": "fm-labs/cupcake-app",
+    "description": "Cupcake PHP Application Skeleton",
+    "homepage": "https://cake.fmlabs.dev",
     "type": "project",
     "license": "Proprietary",
     "require": {
