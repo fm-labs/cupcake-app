@@ -1,20 +1,5 @@
 FROM composer:2 AS composer
 
-
-#FROM php:8.2 AS build-stage
-#COPY --from=composer /usr/bin/composer /usr/bin/composer
-#
-#WORKDIR /app
-#COPY . /app
-##COPY ./bin /app/bin
-##COPY ./config /app/config
-##COPY ./src /app/src
-##COPY ./templates /app/templates
-##COPY ./composer.json ./composer.lock /app/
-#RUN composer install --no-dev --no-scripts --no-interaction
-#RUN mkdir -p /app/webroot/cache/{css,fonts,js,img}
-
-
 # Use an Nginx base image
 FROM nginx
 

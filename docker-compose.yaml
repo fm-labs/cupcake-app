@@ -1,0 +1,60 @@
+version: "3.9"
+
+services:
+
+  devserver:
+    container_name: "cupcake_dev"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - PHP_VERSION=8.2
+    environment:
+      DEBUG: 1
+      DB_HOST: devdb
+      DB_PORT: 3306
+      DB_USER: ccdocker
+      DB_PASSWORD: ccdocker
+      DB_NAME: ccdocker_dev
+    #env_file:
+    #  - .env.docker.local
+    #extra_hosts:
+    #  - host.docker.internal:host-gateway
+    volumes:
+      - .:/app
+      - ./tmp/dev/data:/app/data
+      - ./tmp/dev/logs:/app/logs
+      - ./tmp/dev/tmp:/app/tmp
+    ports:
+      - "8880:80"
+    # command: ["php -S 0.0.0.0:8880 -t /app/webroot/ /app/webroot/index.php"]
+    # depends_on:
+    #   - devdatabase
+    networks:
+      - cupcake_dev
+    profiles:
+      - dev
+
+  devdatabase:
+    hostname: devdb
+    image: mariadb:latest
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./config/db/initdb.d/:/docker-entrypoint-initdb.d/
+      - ./data/mariadb/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=ccdocker
+      - MYSQL_PASSWORD=ccdocker
+      - MYSQL_USER=ccdocker
+      - MYSQL_DATABASE=ccdocker_dev
+    networks:
+      - cupcake_dev
+    profiles:
+      - db
+
+networks:
+  cupcake_dev:
+    name: cupcake_dev
+    driver: bridge
